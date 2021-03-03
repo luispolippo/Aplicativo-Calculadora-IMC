@@ -1,44 +1,33 @@
 package com.polippo.imcapplication
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.w("lifecycle", "entrei no CREATE - estou criando a tela")
+        setListeners()
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.w("lifecycle", "entrei no START - deixei a tela visivel")
+    private fun setListeners(){
+
+        calcularButton?.setOnClickListener {
+            calcularIMC(pesoEdit.text.toString(), alturaEdit.text.toString())
+        }
     }
 
-    override fun onResume(){
-        super.onResume()
-        Log.w("lifecycle", "entrei no RESUME - agora você pode interagir com a tela")
-    }
+    private fun calcularIMC(peso:String, altura:String){
 
-    override fun onPause(){
-        super.onPause()
-        Log.w("lifecycle", "PAUSE - A tela perdeu o foco, você não pode interagir")
-    }
+        val peso = peso.toFloatOrNull()
+        val altura = altura.toFloatOrNull()
 
-    override fun onStop(){
-        super.onStop()
-        Log.w("lifecycle", "STOP - A tela não está mais visivel mas ainda existe")
-    }
+        if(peso != null && altura != null){
+            val imc = peso/ (altura * altura)
+            titleTxt.text = "Seu IMC é %.2f".format(imc)
+        }
 
-    override fun onRestart(){
-        super.onRestart()
-        Log.w("lifecycle", "entrei no RESTART - A tela está retornando ao foco")
-    }
-
-    override fun onDestroy(){
-        super.onDestroy()
-        Log.w("lifecycle", "entrei no DESTROY - A tela foi destruida")
     }
 
 
