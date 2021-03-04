@@ -7,4 +7,12 @@
     <string name="hint_peso">Informe seu peso (Ex. 65Kg)</string>
     <string name="hint_altura">Informe sua Altura(Ex. 1.78m)</string>
     <string name="button_name">Calcular</string>
+    <string name="imc_result">Seu IMC é %.2f</string>
+    <string name="snackbar_text">Informe a Altura e o Peso</string>
+    <string name="abaixo_peso">Abaixo do Peso</string>
+    <string name="peso_normal">Peso Normal</string>
+    <string name="sobrepeso">Sobrepeso</string>
+    <string name="obesidade_1">Obesidade Grau 1</string>
+    <string name="obesidade_2">Obesidade Grau 2</string>
+    <string name="obesidade_morbida">Obesidade Morbida</string>
 </resources>
